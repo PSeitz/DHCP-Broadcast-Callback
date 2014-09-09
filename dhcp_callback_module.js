@@ -21,14 +21,13 @@ function Service(options) {
 
     server.on('message', function(msg, rinfo) {
         var mac =  readAddressRaw(msg, 28, msg.readUInt8(2), options.delimiter);
-        console.log(mac);
         if (!options.catchMacAdress || options.catchMacAdress.indexOf(mac) >= 0 ) {
             self.emit("broadcast", mac);
         }        
     });
 
     server.on('listening', function() {
-        console.log('lizening');
+        console.log('listening');
     });
 
     server.bind(67, undefined, function() { 
