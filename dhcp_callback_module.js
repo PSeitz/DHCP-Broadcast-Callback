@@ -5,13 +5,13 @@ function Service(catchMacAdress) {
     var self = this;
 
     var dgram = require('dgram');
-    function readAddressRaw(msg, offset, len) {
+    function readAddressRaw(msg, offset, len, delimiter) {
             var addr = '';
             while (len-- > 0) {
                 var b = msg.readUInt8(offset++);
                 addr += (b + 0x100).toString(16).substr(-2);
                 if (len > 0) {
-                    addr += ':';
+                    addr += delimiter;
                 }
             }
             return addr;
@@ -20,7 +20,7 @@ function Service(catchMacAdress) {
     var server = dgram.createSocket('udp4');
 
     server.on('message', function(msg, rinfo) {
-        var mac =  readAddressRaw(msg, 28, msg.readUInt8(2));
+        var mac =  readAddressRaw(msg, 28, msg.readUInt8(2), ':');
         console.log(mac);
         if (!catchMacAdress || catchMacAdress.indexOf(mac) >= 0 ) {
             self.emit("broadcast", mac);
