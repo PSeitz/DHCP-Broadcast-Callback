@@ -1,6 +1,6 @@
 {
   "name": "DHCP-Broadcast-Callback",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Callback for received DHCP broadcasts, with the issueing mac adress as parameter",
   "main": "dhcp_callback_module.js",
   "scripts": {
