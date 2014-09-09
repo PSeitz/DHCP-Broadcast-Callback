@@ -17,7 +17,7 @@
     "mac"
   ],
   "author": "Pascal Seitz",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/PSeitz/DHCP-Broadcast-Callback/issues"
   },
