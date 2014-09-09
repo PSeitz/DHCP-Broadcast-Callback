@@ -1,8 +1,8 @@
 var events = require("events");
 
-function Service(catchMacAdress, delimiter) {
+function Service(options) {
     var self = this;
-    if(!delimiter) delimiter = ':'
+    if(!options.delimiter) options.delimiter = ':'
 
     var dgram = require('dgram');
     function readAddressRaw(msg, offset, len, delimiter) {
@@ -20,9 +20,9 @@ function Service(catchMacAdress, delimiter) {
     var server = dgram.createSocket('udp4');
 
     server.on('message', function(msg, rinfo) {
-        var mac =  readAddressRaw(msg, 28, msg.readUInt8(2), delimiter);
+        var mac =  readAddressRaw(msg, 28, msg.readUInt8(2), options.delimiter);
         console.log(mac);
-        if (!catchMacAdress || catchMacAdress.indexOf(mac) >= 0 ) {
+        if (!options.catchMacAdress || options.catchMacAdress.indexOf(mac) >= 0 ) {
             self.emit("broadcast", mac);
         }        
     });
