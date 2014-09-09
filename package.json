@@ -1,0 +1,27 @@
+{
+  "name": "DHCP-Broadcast-Callback",
+  "version": "0.1.0",
+  "description": "Callback for received DHCP broadcasts, with the issueing mac adress as parameter",
+  "main": "dhcp_callback_module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PSeitz/DHCP-Broadcast-Callback.git"
+  },
+  "keywords": [
+    "dhcp",
+    "broadcast",
+    "callback",
+    "mac"
+  ],
+  "author": "Pascal Seitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PSeitz/DHCP-Broadcast-Callback/issues"
+  },
+  "homepage": "https://github.com/PSeitz/DHCP-Broadcast-Callback",
+  "dependencies": {
+  }
+}
