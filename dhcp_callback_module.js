@@ -1,8 +1,9 @@
 var events = require("events");
 var dhcpjs = require('dhcpjs');
 
-function Service(catchMacAdress) {
+function Service(catchMacAdress, delimiter) {
     var self = this;
+    if(!delimiter) delimiter = ':'
 
     var dgram = require('dgram');
     function readAddressRaw(msg, offset, len, delimiter) {
@@ -20,7 +21,7 @@ function Service(catchMacAdress) {
     var server = dgram.createSocket('udp4');
 
     server.on('message', function(msg, rinfo) {
-        var mac =  readAddressRaw(msg, 28, msg.readUInt8(2), ':');
+        var mac =  readAddressRaw(msg, 28, msg.readUInt8(2), delimiter);
         console.log(mac);
         if (!catchMacAdress || catchMacAdress.indexOf(mac) >= 0 ) {
             self.emit("broadcast", mac);
