@@ -1,7 +1,7 @@
 DHCP-Broadcast-Callback
 =======================
 
-Lets you register a callback for received DHCP broadcasts
+Callbacks for received DHCP broadcasts, with the mac adress as parameter
 
 
 
