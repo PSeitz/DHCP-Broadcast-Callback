@@ -8,4 +8,6 @@ Lets you register a callback for received DHCP Callbacks with the MAC adress of 
 
 ## Usage
 
-var DCHP = require("dhcp-broad")
+    var DCHP = require("dhcp_callback_module.js")
+    var listener = new DHCP() ;
+    listener.on()
