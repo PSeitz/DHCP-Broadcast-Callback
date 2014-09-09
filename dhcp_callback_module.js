@@ -1,5 +1,4 @@
 var events = require("events");
-var dhcpjs = require('dhcpjs');
 
 function Service(catchMacAdress, delimiter) {
     var self = this;
